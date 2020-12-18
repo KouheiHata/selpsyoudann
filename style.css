@@ -1,0 +1,335 @@
+@charset "utf-8";
+
+/*---------------------------------------------------------------------------------
+
+	Theme Name: セルプオンライン商談会
+	Description: 
+	Author: 前進主義
+	
+-----------------------------------------------------------------------------------
+
+	0.	CSS Reset & Clearfix
+	1.	Document
+	2.	Font
+	3.	Frame
+	4.	Heading
+	5.	Header
+	6.	Menu Navigation
+	7.	Button
+	8.	Top Page
+	9.	Archive Page
+	10.	Single Page
+	11.	Blog
+	12.	Sidebar
+	13.	Footer
+	14. Color
+
+----------------------------------------------------------------------------------- */
+.test {
+	display: none;
+	font-weight: 800 !important;
+}
+
+/* -------------------------------------------------------------------------------- */
+/*	0. CSS Reset
+/* -------------------------------------------------------------------------------- */
+
+html {
+	overflow-x :hidden;
+}
+html, body {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: auto;
+}
+
+h1, h2, h3, h4, h5, h6, p, blockquote, address, big, cite, code, em, font, img, small, strike, sub, sup, li, ol, ul, fieldset, form, label, legend, button, table, caption, tr, th, td {
+	margin:0;
+	padding:0;
+	border:0;
+	font-weight:normal;
+	font-style:normal;
+	line-height:1.5;
+	font-family:inherit;
+	text-align:left;
+}
+
+table {
+	border-collapse:collapse;
+	border-spacing:0;
+}
+
+ol, ul {
+	list-style:none;
+}
+
+blockquote:before, blockquote:after {
+	content:"";
+}
+
+a { outline:none; }
+
+input[type=search],
+input[type=text],
+input[type=email],
+input[type=url],
+input[type=button],
+input[type=tel],
+input[type=submit],
+textarea {
+   -moz-appearance: none;
+   -webkit-appearance: none;
+}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button,
+input[type="search"]::-webkit-search-results-button,
+input[type="search"]::-webkit-search-results-decoration {
+  display: none;
+}
+
+
+img { border: none; vertical-align: bottom; }
+
+caption, th { text-align:left; }
+
+iframe { border: none;}
+
+a:focus { outline: none;}
+
+address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal;} 
+
+li img{
+	line-height:0;
+	font-size:0;
+	vertical-align:top;
+}
+
+/* IE */
+* html ul li dl,
+* html ol li dl { display: inline; }
+
+*:first-child+html ul li dl,
+*:first-child+html ol li dl {display: inline; }
+
+/* =========================================================
+ * html5        /*html5
+========================================================= */
+article,aside,canvas,details,figcaption,figure,
+footer,header,hgroup,menu,nav,section,summary{
+display:block;
+}
+
+/* =========================================================
+ * clearfix   /*clearfix
+========================================================= */
+
+.clearfix:after {
+    content: ".";
+    display: block;
+    clear: both;
+    height: 0;
+    visibility: hidden;
+}
+.clearfix {display: inline-block;}
+/*\*/
+* html .clearfix {height: 1%}
+.clearfix {display:block;}
+/**/
+
+/* IE */
+* html div.clearfix {height: 1%;}
+*:first-child+html div.clearfix {height: 1%;}
+
+.clear { clear: both; }
+
+
+/* -------------------------------------------------------------------------------- */
+/*	1. Document
+/* -------------------------------------------------------------------------------- */
+
+body {
+	background: #fff;
+	color: #333;
+	font-family: Quicksand, 游ゴシック体, "Yu Gothic", YuGothic, "ヒラギノ角ゴシック Pro", "Hiragino Kaku Gothic Pro", メイリオ, Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;
+	font-size: 18px;
+	font-weight: 400;
+	-webkit-font-smoothing: antialiased;
+	line-height: 1;
+	word-wrap: break-word;
+	/* overflow-x: hidden; */
+	min-height: 100%;
+	display: block;
+	flex-direction: column;
+}
+
+a {
+	text-decoration: none;
+	color: #000;
+}
+
+a:hover {
+	text-decoration: underline;
+	color: #000;
+}
+
+.noline a:hover {
+	text-decoration: none;
+}
+
+a:focus {
+	outline: none;
+}
+
+* {  
+	-webkit-box-sizing: border-box; 
+	-moz-box-sizing: border-box; 
+	box-sizing: border-box;
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+::selection {
+	background: #333;
+	color: #fff;
+}
+
+::-webkit-input-placeholder { color: #fff; }
+:-ms-input-placeholder { color: #fff; }
+
+
+/* -------------------------------------------------------------------------------- */
+/*	2.	Font
+/* -------------------------------------------------------------------------------- */
+
+.center {
+	text-align: center;
+}
+.left {
+	text-align: left;
+}
+.right {
+	text-align: right;
+}
+.underline {
+	text-decoration: underline;
+}
+.black {
+	font-weight: 900 !important;
+}
+.bold {
+	font-weight: 700 !important;
+}
+.medium {
+	font-weight: 500 !important;
+}
+.normal {
+	font-weight: 400 !important;
+}
+.light {
+	font-weight: 300 !important;
+}
+.demi-light {
+	font-weight: 200 !important;
+}
+.thin {
+	font-weight: 100 !important;
+}
+.em50{
+	font-size: 0.5em;
+}
+.em75{
+	font-size: 0.75em;
+}
+.em100{
+	font-size: 1em;
+}
+.em125{
+	font-size: 1.25em;
+}
+.em150{
+	font-size: 1.5em;
+}
+.em200{
+	font-size: 2em;
+}
+.em250{
+	font-size: 2.5em;
+}
+
+/* -------------------------------------------------------------------------------- */
+/*	3.	Frame
+/* -------------------------------------------------------------------------------- */
+
+.hidden { 
+	display: none;
+}
+.clear {
+	clear: both;
+}
+.none {
+	display: none !important;
+}
+.image-round {
+	object-fit: cover;
+}
+
+/* -------------------------------------------------------------------------------- */
+/*	4.	Heading
+/* -------------------------------------------------------------------------------- */
+
+
+/* -------------------------------------------------------------------------------- */
+/*	5.	Header
+/* -------------------------------------------------------------------------------- */
+
+
+/* -------------------------------------------------------------------------------- */
+/*	6.	Menu Navigation
+/* -------------------------------------------------------------------------------- */
+
+
+/* -------------------------------------------------------------------------------- */
+/*	7.	Button
+/* -------------------------------------------------------------------------------- */
+
+
+/* -------------------------------------------------------------------------------- */
+/*	8.	Top Page
+/* -------------------------------------------------------------------------------- */
+
+
+/* -------------------------------------------------------------------------------- */
+/*	9.	Archive Page
+/* -------------------------------------------------------------------------------- */
+
+
+/* -------------------------------------------------------------------------------- */
+/*	10.	Single Page
+/* -------------------------------------------------------------------------------- */
+
+
+/* -------------------------------------------------------------------------------- */
+/*	11.	Blog
+/* -------------------------------------------------------------------------------- */
+
+
+/* -------------------------------------------------------------------------------- */
+/*	12.	Sidebar
+/* -------------------------------------------------------------------------------- */
+
+
+/* -------------------------------------------------------------------------------- */
+/*	13.	Footer
+/* -------------------------------------------------------------------------------- */
+
+
+/* -------------------------------------------------------------------------------- */
+/*	14.	Color
+/* -------------------------------------------------------------------------------- */
+
+
