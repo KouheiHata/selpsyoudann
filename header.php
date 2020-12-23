@@ -13,7 +13,7 @@
 <!-- CSS -->
 <link href="<?php echo get_stylesheet_directory_uri(); ?>/style.css" rel="stylesheet">
 <!-- Responsive CSS -->
-<link href="<?php echo get_stylesheet_directory_uri(); ?>/responsive.css" rel="stylesheet">
+<link href="<?php echo get_stylesheet_directory_uri(); ?>/css/responsive.css" rel="stylesheet">
 
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

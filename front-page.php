@@ -1,11 +1,3 @@
-<?php
-
-/*
-Template Name: TOPページ
-*/
-
-?>
-
 <?php get_header(); ?>
 
 <div class="container">

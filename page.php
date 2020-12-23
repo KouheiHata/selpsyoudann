@@ -1,12 +1,3 @@
-<?php
-
-/*
-Template Name: 個別ページテンプレート
-*/
-
-?>
-
-
 <?php get_header(); ?>
 
 <div class="container">
