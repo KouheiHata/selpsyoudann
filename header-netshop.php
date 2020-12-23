@@ -28,3 +28,14 @@ wp_deregister_script('jquery');
 
 <?php wp_head(); ?>
 </head>
+
+<div class="container" style="margin-bottom: 20px;">
+	<div class="row">
+		<div class="col-lg-7 col-md-7 col-sm-7 col-7 marginTop10">
+			<span class="em125 bold">社会福祉法人&nbsp;福井県セルプ</span>&nbsp;<img src="<?php echo get_template_directory_uri(); ?>/images/netshop/onlineshop.jpg" alt="オンラインショップ" id="onlineshop_title">
+		</div>
+		<div class="col-lg-5 col-md-5 col-sm-5 col-5 marginTop10">
+			<span id="con_btn">お問合せはこちら</span>
+		</div>
+	</div>
+</div>

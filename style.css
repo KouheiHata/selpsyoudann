@@ -277,7 +277,52 @@ img {
 .image-round {
 	object-fit: cover;
 }
-
+.fleft {
+	float: left;
+}
+.fright {
+	float: right;
+}
+.container {
+	width: 100%;
+	margin: 0 auto;
+	background: transparent;
+}
+.contents {
+	padding-top: 48px;
+	padding-bottom: 300px;
+}
+.center {
+	text-align: center;
+}
+.left {
+	text-align: left;
+}
+.right {
+	text-align: right;
+}
+.paddingNormal {
+	padding: 15px;
+}
+.marginTop10 {
+	margin-top: 10px;
+}
+.marginTop30 {
+	margin-top: 30px;
+}
+.marginTop50 {
+	margin-top: 50px;
+}
+.marginTop100 {
+	margin-top: 100px;
+}
+.marginTB100 {
+	margin-top: 100px;
+	margin-bottom: 100px;
+}
+.marginBottom50 {
+	margin-bottom: 50px;
+}
 /* -------------------------------------------------------------------------------- */
 /*	4.	Heading
 /* -------------------------------------------------------------------------------- */
@@ -286,7 +331,19 @@ img {
 /* -------------------------------------------------------------------------------- */
 /*	5.	Header
 /* -------------------------------------------------------------------------------- */
+#onlineshop_title {
+	width: 45%;
+}
 
+#con_btn {
+	position: absolute;
+	right: 20px;
+	display: inline;
+	font-size: 1.3rem;
+	font-weight: bold;
+	padding: 10px 10px;
+	border: inset 2px #000000;
+}
 
 /* -------------------------------------------------------------------------------- */
 /*	6.	Menu Navigation
@@ -306,7 +363,14 @@ img {
 /* -------------------------------------------------------------------------------- */
 /*	9.	Archive Page
 /* -------------------------------------------------------------------------------- */
+.news_date {
+	padding-top: 20px;
+	color: #595757;
+}
 
+.shop-list {
+	padding: 20px;
+}
 
 /* -------------------------------------------------------------------------------- */
 /*	10.	Single Page

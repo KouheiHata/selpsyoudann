@@ -106,7 +106,7 @@ function new_custom_post_type() {
 
 	// もともと設定されていたカスタム投稿タイプ「netshop」
 	register_post_type(
-		'event',
+		'netshop',
 		array(
 			'labels' => array(
 				'name' => 'ネットショップ',
