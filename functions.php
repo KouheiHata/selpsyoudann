@@ -39,7 +39,7 @@ function enqueue_scripts() {
     //CSS
     wp_enqueue_style('main', get_stylesheet_uri() );
         //レスポンシブＣＳＳ
-    wp_enqueue_style('responsive', get_template_directory_uri().'/responsive.css' );
+    wp_enqueue_style('responsive', get_template_directory_uri().'/css/responsive.css' );
     //javascript
     wp_enqueue_script('mainjs', get_stylesheet_directory_uri().'/js/main.js',array(),'',true
     );
@@ -105,54 +105,54 @@ add_filter( 'show_admin_bar' , 'my_function_admin_bar');
 function new_custom_post_type() {
 
 	// もともと設定されていたカスタム投稿タイプ「netshop」
-	register_post_type(
-		'event',
-		array(
-			'labels' => array(
-				'name' => 'ネットショップ',
-				'singular_name' => 'netshop',
-				'add_new' => '新規追加',
-				'add_new_item' => '新規追加',
-				'edit_item' => '商品を編集',
-				'new_item' => '新着情報',
-				'all_items' => '商品一覧',
-				'view_item' => '商品を見る',
-				'search_items' => '検索する',
-				'not_found' => '商品が見つかりませんでした。',
-				'not_found_in_trash' => 'ゴミ箱内に商品が見つかりませんでした。'
-			),
-			'public' => true,
-			'has_archive' => true,
-			'menu_icon' => 'dashicons-format-chat',
-			'menu_position' => 5,
-			'supports' => array(
-				'title',
-				'editor',
-				'thumbnail'
-			),
-			'rewrite' => true,
-			'taxonomies' => array('netshop')
-		)
-	);
-
-	$labels = array(
-		'name'                => 'カテゴリー',
-		'singular_name'       => 'カテゴリー',
-		'search_items'        => 'カテゴリー検索',
-		'all_items'           => '全てのカテゴリー',
-		'parent_item'         => '親カテゴリー',
-		'parent_item_colon'   => '親カテゴリー:',
-		'edit_item'           => 'カテゴリーを編集',
-		'update_item'         => 'カテゴリーを更新',
-		'add_new_item'        => 'カテゴリーを追加',
-		'new_item_name'       => '新規カテゴリー',
-		'menu_name'           => 'カテゴリー'
-	);
-	$args = array(
-		'hierarchical'        => true,
-		'labels'              => $labels,
-	);
-
-	register_taxonomy( 'netshop_cat', 'netshop', $args );
+//	register_post_type(
+//		'netshop',
+//		array(
+//			'labels' => array(
+//				'name' => 'ネットショップ',
+//				'singular_name' => 'netshop',
+//				'add_new' => '新規追加',
+//				'add_new_item' => '新規追加',
+//				'edit_item' => '商品を編集',
+//				'new_item' => '新着情報',
+//				'all_items' => '商品一覧',
+//				'view_item' => '商品を見る',
+//				'search_items' => '検索する',
+//				'not_found' => '商品が見つかりませんでした。',
+//				'not_found_in_trash' => 'ゴミ箱内に商品が見つかりませんでした。'
+//			),
+//			'public' => true,
+//			'has_archive' => true,
+//			'menu_icon' => 'dashicons-format-chat',
+//			'menu_position' => 5,
+//			'supports' => array(
+//				'title',
+//				'editor',
+//				'thumbnail'
+//			),
+//			'rewrite' => true,
+//			'taxonomies' => array('netshop')
+//		)
+//	);
+//
+//	$labels = array(
+//		'name'                => 'カテゴリー',
+//		'singular_name'       => 'カテゴリー',
+//		'search_items'        => 'カテゴリー検索',
+//		'all_items'           => '全てのカテゴリー',
+//		'parent_item'         => '親カテゴリー',
+//		'parent_item_colon'   => '親カテゴリー:',
+//		'edit_item'           => 'カテゴリーを編集',
+//		'update_item'         => 'カテゴリーを更新',
+//		'add_new_item'        => 'カテゴリーを追加',
+//		'new_item_name'       => '新規カテゴリー',
+//		'menu_name'           => 'カテゴリー'
+//	);
+//	$args = array(
+//		'hierarchical'        => true,
+//		'labels'              => $labels,
+//	);
+//
+//	register_taxonomy( 'netshop_cat', 'netshop', $args );
 }
 add_action( 'init', 'new_custom_post_type');

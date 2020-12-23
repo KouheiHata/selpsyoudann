@@ -1,15 +1,8 @@
-<?php
-
-/*
-Template Name: 投稿ページテンプレート
-*/
-
-?>
-
 <?php get_header(); ?>
 
 <div class="container">
     <div class="row">
+    <?php the_content(); ?>
     </div>
 </div>
 
