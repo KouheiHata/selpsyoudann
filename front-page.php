@@ -2,6 +2,7 @@
 
 <div class="container">
     <div class="row">
+        <a href="<?php echo home_url('/archives/netshop') ?>">オンラインショップ</a><br>
     </div>
 </div>
 

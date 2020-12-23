@@ -185,6 +185,10 @@ img {
 	height: auto;
 }
 
+.wp-post-image {
+	width: 200px!important;
+}
+
 ::selection {
 	background: #333;
 	color: #fff;
@@ -309,6 +313,12 @@ img {
 	margin-top: 100px;
 	margin-bottom: 100px;
 }
+.marginBottom10 {
+	margin-bottom: 10px;
+}
+.marginBottom30 {
+	margin-bottom: 30px;
+}
 .marginBottom50 {
 	margin-bottom: 50px;
 }
@@ -357,13 +367,17 @@ img {
 /* -------------------------------------------------------------------------------- */
 /*	9.	Archive Page
 /* -------------------------------------------------------------------------------- */
-.news_date {
-	padding-top: 20px;
+.news-date:first-child {
+	padding-top: 0px;
+}
+
+.news-date {
+	padding-top: 15px;
 	color: #595757;
 }
 
 .shop-list {
-	padding: 20px;
+	padding: 30px 10px;
 }
 
 /* -------------------------------------------------------------------------------- */
