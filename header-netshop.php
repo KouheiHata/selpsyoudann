@@ -22,6 +22,21 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"></script>
+<script type="text/javascript">
+// 商品詳細ページのサムネイル画像
+$(function(){
+	$("img.ChangePhoto").click(function(){
+		var ImgSrc = $(this).attr("src");
+		var ImgAlt = $(this).attr("alt");
+		$("img#MainPhoto").attr({src:ImgSrc,alt:ImgAlt});
+		$("img#MainPhoto").hide();
+		$("img#MainPhoto").fadeIn("slow");
+		return false;
+	});
+});
+</script>
+
 <?php
 wp_deregister_script('jquery');
 ?>

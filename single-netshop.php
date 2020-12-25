@@ -1,37 +1,21 @@
-<?php get_header(); ?>
+<?php get_header('netshop'); ?>
 
+<body <?php body_class(); ?>>
 
 <main id="main" class="main">
 
-    <div class="container">
+    <div class="container marginTop100 marginBottom100">
         <div class="row">
 
-            <?php
-            $loop = new WP_Query(array("post_type => netshop"));
-            if( have_posts() ) : while( have_posts() ) : the_post(); ?>
+        <?php if( have_posts() ) : while( have_posts() ) : the_post(); ?>
 
-            <article <?php post_class(); ?>>
-                <header class="content-header">
+        <?php the_content(); ?>
 
-                </header>
-
-                <div class="product">
-                <?php
-echo do_shortcode('[smartslider3 slider="2"]');
-?>
-                    <h1 class="content-h1">
-                        <?php the_title(); ?>
-                    </h1>
-                    <?php the_content(); ?>
-                </div>
-
-            </article>
-
-            <?php endwhile; else: ?>
+        <?php endwhile; else: ?>
 
             <p>投稿はありません</p>
 
-            <?php endif; ?>
+        <?php endif; ?>
 
         </div>
     </div>
