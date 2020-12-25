@@ -41,8 +41,7 @@ function enqueue_scripts() {
         //レスポンシブＣＳＳ
     wp_enqueue_style('responsive', get_template_directory_uri().'/css/responsive.css' );
     //javascript
-    wp_enqueue_script('mainjs', get_stylesheet_directory_uri().'/js/main.js',array(),'',true
-    );
+    wp_enqueue_script('mainjs', get_stylesheet_directory_uri().'/js/main.js',array(),'',true );
 }
 add_action('wp_enqueue_scripts', 'enqueue_scripts' );
 

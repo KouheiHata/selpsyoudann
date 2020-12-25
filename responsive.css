@@ -95,45 +95,10 @@
 /*	13.	ChangePhoto(JQuery)
 /* -------------------------------------------------------------------------------- */
 
-@media screen and (max-width: 575.98px) {
-	.wrap { width:270px;}
-
-	#MainPhoto {
-		width: 270px;
-	}
-
-	.ChangePhoto {
-		width: 80px;
-	}
-}
-
-@media screen and (min-width: 576px) and (max-width: 767.98px) {
-	.wrap { width:270px;}
-
-	#MainPhoto {
-		width: 270px;
-	}
-
-	.ChangePhoto {
-		width: 80px;
-	}
-}
-
-@media screen and (min-width: 768px) and (max-width: 991.98px) {
-	.wrap { width:370px;}
-
-	#MainPhoto {
-		width: 370px;
-	}
-
-	.ChangePhoto {
-		width: 110px;
-	}
-}
-
+@media screen and (max-width: 575.98px) {}
+@media screen and (min-width: 576px) and (max-width: 767.98px) {}
+@media screen and (min-width: 768px) and (max-width: 991.98px) {}
 @media screen and (min-width: 992px) and (max-width: 1199.98px) {
-	.wrap { width:490px;}
-
 	#MainPhoto {
 		width: 490px;
 	}

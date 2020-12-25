@@ -390,6 +390,8 @@ img {
 
 /* オンラインショップ */
 .detail_shop {
+	padding-left: 5%;
+	padding-bottom: 50px;
 	display: inline;
 	font-size: 18pt;
 	line-height: 1.5;
@@ -461,3 +463,4 @@ img {
 .ChangePhoto {
 	width: 170px;
 }
+
