@@ -133,6 +133,37 @@ function new_custom_post_type() {
 			'taxonomies' => array('netshop')
 		)
 	);
+    
+    //カスタム投稿タイプ「news」
+	register_post_type(
+		'news',
+		array(
+			'labels' => array(
+				'name' => 'お知らせ',
+				'singular_name' => 'news',
+				'add_new' => '新規追加',
+				'add_new_item' => '新規追加',
+				'edit_item' => 'お知らせを編集',
+				'new_item' => '新着情報',
+				'all_items' => 'お知らせ一覧',
+				'view_item' => 'お知らせを見る',
+				'search_items' => '検索する',
+				'not_found' => 'お知らせが見つかりませんでした。',
+				'not_found_in_trash' => 'ゴミ箱内にお知らせが見つかりませんでした。'
+			),
+			'public' => true,
+			'has_archive' => true,
+			'menu_icon' => 'dashicons-format-chat',
+			'menu_position' => 5,
+			'supports' => array(
+				'title',
+				'editor',
+				'thumbnail'
+			),
+			'rewrite' => true,
+			'taxonomies' => array('news')
+		)
+	);
 
 	$labels = array(
 		'name'                => 'カテゴリー',
@@ -153,5 +184,6 @@ function new_custom_post_type() {
 	);
 
 	register_taxonomy( 'netshop_cat', 'netshop', $args );
+    register_taxonomy( 'news_cat', 'news', $args );
 }
 add_action( 'init', 'new_custom_post_type');
