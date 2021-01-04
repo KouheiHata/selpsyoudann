@@ -52,6 +52,14 @@ function custom_archives( $args ) {
  }
  add_filter( 'widget_archives_args', 'custom_archives' );
 
+//カテゴリ検索
+function mysearch_original() {
+  ob_start(); 
+  get_template_part('search');
+  return ob_get_clean();
+ }
+ add_shortcode('search', 'search_original');
+
 //ループ回数を取得
 function loopNumber(){
     global $wp_query;
@@ -164,6 +172,37 @@ function new_custom_post_type() {
 			'taxonomies' => array('news')
 		)
 	);
+    
+    //カスタム投稿タイプ「outsourcing」
+	register_post_type(
+		'news',
+		array(
+			'labels' => array(
+				'name' => 'アウトソーシング',
+				'singular_name' => 'outsourcing',
+				'add_new' => '新規追加',
+				'add_new_item' => '新規追加',
+				'edit_item' => 'アウトソーシングを編集',
+				'new_item' => '新着情報',
+				'all_items' => '企業一覧',
+				'view_item' => '一覧を見る',
+				'search_items' => '検索する',
+				'not_found' => '企業が見つかりませんでした。',
+				'not_found_in_trash' => 'ゴミ箱内は空です。'
+			),
+			'public' => true,
+			'has_archive' => true,
+			'menu_icon' => 'dashicons-format-chat',
+			'menu_position' => 5,
+			'supports' => array(
+				'title',
+				'editor',
+				'thumbnail'
+			),
+			'rewrite' => true,
+			'taxonomies' => array('outsourcing')
+		)
+	);
 
 	$labels = array(
 		'name'                => 'カテゴリー',
@@ -185,5 +224,6 @@ function new_custom_post_type() {
 
 	register_taxonomy( 'netshop_cat', 'netshop', $args );
     register_taxonomy( 'news_cat', 'news', $args );
+    register_taxonomy( 'outsourcing_cat', 'outsourcing', $args );
 }
 add_action( 'init', 'new_custom_post_type');
