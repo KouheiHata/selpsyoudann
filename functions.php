@@ -53,12 +53,12 @@ function custom_archives( $args ) {
  add_filter( 'widget_archives_args', 'custom_archives' );
 
 //カテゴリ検索
-function mysearch_original() {
+function categorysearch_original() {
   ob_start(); 
-  get_template_part('search');
+  get_template_part('categorysearch');
   return ob_get_clean();
  }
- add_shortcode('search', 'search_original');
+add_shortcode('categorysearch', 'categorysearch_original');
 
 //ループ回数を取得
 function loopNumber(){
@@ -175,7 +175,7 @@ function new_custom_post_type() {
     
     //カスタム投稿タイプ「outsourcing」
 	register_post_type(
-		'news',
+		'outsourcing',
 		array(
 			'labels' => array(
 				'name' => 'アウトソーシング',
