@@ -225,5 +225,7 @@ function new_custom_post_type() {
 	register_taxonomy( 'netshop_cat', 'netshop', $args );
     register_taxonomy( 'news_cat', 'news', $args );
     register_taxonomy( 'outsourcing_cat', 'outsourcing', $args );
+
+    register_taxonomy( 'outsourcing_tag', 'outsourcing', array( 'hierarchical' => false, 'update_count_callback' => '_update_post_term_count', 'label' => 'Outsourcingのタグ', 'public' => true, 'show_ui' => true) );
 }
 add_action( 'init', 'new_custom_post_type');
