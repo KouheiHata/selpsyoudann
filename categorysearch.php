@@ -37,62 +37,88 @@
     'order' => 'DESC'
   );
 
-  if(!empty($_POST['search_area'])) {
-    foreach($_POST['search_area'] as $value) {
-      $search_area[] = htmlspecialchars($value, ENT_QUOTES);
+  if(!empty($_POST['search_category'])) {
+    foreach($_POST['search_category'] as $value) {
+      $search_category[] = htmlspecialchars($value, ENT_QUOTES);
     }
-    $tax_query_args[] = array(
-                           'taxonomy' => 'area',
-                           'terms' => $search_area,
-                           'field' => 'slug',
-                           'operator' => 'IN'
-                        );
+    $args += array('category__in' => $search_category);
   }
 
-  if(!empty($_POST['search_price'])) {
-    foreach($_POST['search_price'] as $value) {
-      $search_price[] = htmlspecialchars($value, ENT_QUOTES);
+  if(!empty($_POST['search_tag'])) {
+    foreach($_POST['search_tag'] as $value) {
+      $search_tag[] = htmlspecialchars($value, ENT_QUOTES);
     }
-
-    $tax_query_args[] = array(
-                           'taxonomy' => 'price',
-                           'terms' => $search_price,
-                           'field' => 'slug',
-                           'operator' => 'IN'
-                        );
-  }
-
-  if(!empty($_POST['search_area']) || !empty($_POST['search_price'])) {
-    $args += array('tax_query' => array($tax_query_args));
+    $args += array('tag__in' => $search_tag);
   }
 ?>
 
-<div class="condition-title">仕事一覧</div>
+<!-- 2. 検索フォームの表示 -->
+<div class="search">
+<form method="post" action="<?php echo esc_url(home_url() . $_SERVER['REQUEST_URI']); ?>">
+<div class="checkbox">
+
+<div class="condition-title">仕事内容</div>
 <div class="condition">
   <?php
-    $areas = get_terms('area', Array('hide_empty' => false));
-    foreach($areas as $area):
+    $categories = get_categories(
+        Array(
+            'hide_empty' => false,
+            'taxonomy' => 'outsourcing_cat'));
+    foreach($categories as $category):
       $checked = "";
-      if(in_array($area->slug, $search_area)) $checked = " checked";
+      if(in_array($category->term_id, $search_category)) $checked = " checked";
   ?>
   <label>
-  <input type="checkbox" name="search_area[]" value="<?php echo esc_attr($area->slug); ?>"<?php echo $checked; ?>>
-  <?php echo esc_html($area->name); ?>
+  <input type="checkbox" name="search_category[]" value="<?php echo esc_attr($category->term_id); ?>"<?php echo $checked; ?>>
+  <?php echo esc_html($category->name); ?>
   </label>
   <?php endforeach; ?>
 </div>
-
+		
 <div class="condition-title">地域</div>
 <div class="condition">
   <?php
-    $prices = get_terms('price', Array('hide_empty' => false, 'orderby' => 'slug'));
-    foreach($prices as $price):
+    $tags = get_terms(
+        Array(
+            'hide_empty' => false,
+            'taxonomy' => 'outsourcing_tag'));
+    foreach($tags as $tag):
       $checked = "";
-      if(in_array($price->slug, $search_price)) $checked = " checked";
+      if(in_array($tag->term_id, $search_tag)) $checked = " checked";
   ?>
   <label>
-  <input type="checkbox" name="search_price[]" value="<?php echo esc_attr($price->slug); ?>"<?php echo $checked; ?>>
-  <?php echo esc_html($price->name); ?>
+  <input type="checkbox" name="search_tag[]" value="<?php echo esc_attr($tag->term_id); ?>"<?php echo $checked; ?>>
+  <?php echo esc_html($tag->name); ?>
   </label>
   <?php endforeach; ?>
+</div>	
+	
+</div>
+
+<input type="submit" value="検索" class="submit-button">
+
+</form>
+																														 
+<!-- 3. 検索結果の取得と表示 -->
+<?php
+  $the_query = new WP_Query($args);
+  if($the_query->have_posts()) :
+?>	
+<div class="result">
+<?php
+  while($the_query->have_posts()) :
+    $the_query->the_post();
+?>			
+<div class="article">
+  <a href="<?php the_permalink(); ?>">
+  <?php the_post_thumbnail('medium'); ?>
+  <div><?php the_title(); ?></div>
+  </a>
+</div>
+<?php endwhile; wp_reset_postdata(); ?>
+</div>
+<?php else : ?>
+<p>該当する企業はありませんでした。</p>
+<?php endif; ?>
+
 </div>
