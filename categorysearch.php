@@ -34,7 +34,14 @@
     'post_status' => 'publish',
     'posts_per_page' => -1,
     'orderby' => 'date',
-    'order' => 'DESC'
+    'order' => 'DESC',
+    'tax_query' => array(
+        array(
+            'taxonomy' => 'outsourcing_tag',
+            'field' => 'id',
+            'terms' => array(17,18,19),
+             ),
+    )
   );
 
   if(!empty($_POST['search_category'])) {
@@ -128,3 +135,10 @@ $search_category[0] = '';
 <?php endif; ?>
 
 </div>
+
+<?php
+$terms = get_terms( 'outsourcing-cat');
+foreach ($tags as $tag) {
+echo print_r($tag);
+}
+?>
