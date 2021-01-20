@@ -41,8 +41,11 @@
     foreach($_POST['search_category'] as $value) {
       $search_category[] = htmlspecialchars($value, ENT_QUOTES);
     }
-    $args += array('category__in' => $search_category);
+   $args += array('category__in' => $search_category);
   }
+else {
+$search_category[0] = '';
+}
 
   if(!empty($_POST['search_tag'])) {
     foreach($_POST['search_tag'] as $value) {
@@ -50,6 +53,9 @@
     }
     $args += array('tag__in' => $search_tag);
   }
+else {
+$search_category[0] = '';
+}
 ?>
 
 <!-- 2. 検索フォームの表示 -->
