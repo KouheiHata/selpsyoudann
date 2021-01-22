@@ -34,13 +34,7 @@
     'post_status' => 'publish',
     'posts_per_page' => -1,
     'orderby' => 'date',
-    'order' => 'DESC',
-    'tax_query' => array(
-        array(
-            'taxonomy' => 'outsourcing_tag',
-            'field' => 'id',
-            'terms' => array(17,18,19),
-             ),
+    'order' => 'DESC'
     )
   );
 
@@ -58,7 +52,13 @@ $search_category[0] = '';
     foreach($_POST['search_tag'] as $value) {
       $search_tag[] = htmlspecialchars($value, ENT_QUOTES);
     }
-    $args += array('tag__in' => $search_tag);
+    $args += array('tax_query' => array(
+        　　　　array(
+            　　　　'taxonomy' => 'outsourcing_tag',
+            　　　　'field' => 'id',
+            　　　　'terms' => $search_tag,
+             　　　　),
+    　　　　));
   }
 else {
 $search_category[0] = '';
