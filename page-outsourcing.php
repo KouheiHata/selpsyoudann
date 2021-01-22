@@ -33,7 +33,7 @@ if ( $query->have_posts() ) : ?>
         <div class="col-xl-4 col-lg-4 col-md-4 col-sm-12 col-12">
             <div class="mx-auto" style="max-width:210px;">
                 <p class="news-img"><?php the_post_thumbnail(); ?></p>
-                <p class="news-time"><?php the_date(); ?></p>
+                <p class="news-time"><?php the_time('Y年m月d日'); ?></p>
                 <p class="news-title"><a class="url-none" href="<?php the_permalink(); ?>"><?php the_title(); ?></a></p>
             </div>
         </div>

@@ -9,7 +9,7 @@
 
   if(!empty($_POST['search_category'])) {
     foreach($_POST['search_category'] as $value) {
-      $search_category[] = htmlspecialchars($value, ENT_QUOTES);
+      $search_category[0] = htmlspecialchars($value, ENT_QUOTES);
     }
    $args += array('category__in' => $search_category);
   }
@@ -19,7 +19,7 @@ $search_category[0] = '';
 
   if(!empty($_POST['search_tag'])) {
     foreach($_POST['search_tag'] as $value) {
-      $search_tag[] = htmlspecialchars($value, ENT_QUOTES);
+      $search_tag[0] = htmlspecialchars($value, ENT_QUOTES);
     }
     $args += array('tax_query' => array(
                 array(
