@@ -35,7 +35,6 @@
     'posts_per_page' => -1,
     'orderby' => 'date',
     'order' => 'DESC'
-    )
   );
 
   if(!empty($_POST['search_category'])) {
@@ -53,12 +52,12 @@ $search_category[0] = '';
       $search_tag[] = htmlspecialchars($value, ENT_QUOTES);
     }
     $args += array('tax_query' => array(
-        　　　　array(
-            　　　　'taxonomy' => 'outsourcing_tag',
-            　　　　'field' => 'id',
-            　　　　'terms' => $search_tag,
-             　　　　),
-    　　　　));
+                array(
+                    'taxonomy' => 'outsourcing_tag',
+                    'field' => 'id',
+                    'terms' => $search_tag,
+                     ),
+            ));
   }
 else {
 $search_category[0] = '';
