@@ -11,7 +11,12 @@
     foreach($_POST['search_category'] as $value) {
       $search_category[] = htmlspecialchars($value, ENT_QUOTES);
     }
-   $args += array('category__in' => $search_category);
+    // []はデータを自動的に配列の末尾に追加
+    $conditions[] = array(
+                    'taxonomy' => 'outsourcing_cat',
+                    'field' => 'id',
+                    'terms' => $search_category,
+                     );
   }
 else {
 $search_category[0] = '';
@@ -21,21 +26,18 @@ $search_category[0] = '';
     foreach($_POST['search_tag'] as $value) {
       $search_tag[] = htmlspecialchars($value, ENT_QUOTES);
     }
-    $args += array('tax_query' => array(
-                array(
-                    'taxonomy' => 'outsourcing_cat',
-                    'field' => 'id',
-                    'terms' => $search_category,
-                     ),
-                array(
+    // []はデータを自動的に配列の末尾に追加する
+    $conditions[] = array(
                     'taxonomy' => 'outsourcing_tag',
                     'field' => 'id',
                     'terms' => $search_tag,
-                     ),
-            ));
+                     );
   } else {
 $search_tag[0] = '';
 }
+
+    // 検索条件確定
+    $args += array('tax_query' => $conditions);
 ?>
 
 <!-- 2. 検索フォームの表示 -->
